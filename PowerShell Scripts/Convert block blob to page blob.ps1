@@ -1,0 +1,1 @@
+azcopy copy "https://<StorageAccountFilePath>?<SASSignature>" --blob-type BlockBlob --block-blob-tier Archive

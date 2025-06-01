@@ -1,0 +1,11 @@
+$disks = Get-Disk
+foreach ($disk in $disks) {
+    $partitions = Get-Partition -DiskNumber $disk.Number
+    foreach ($partition in $partitions) {
+        $size = [math]::round($partition.Size / 1GB, 2)  # Convert size to GB and round to 2 decimal places
+        Write-Output "Disk Number: $($disk.Number)"
+        Write-Output "LUN Number: $($disk.Location)"
+        Write-Output "Drive Letter: $($partition.DriveLetter)"
+        Write-Output "Size (GB): $size"
+    }
+}
